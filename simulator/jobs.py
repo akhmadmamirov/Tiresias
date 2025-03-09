@@ -12,7 +12,7 @@ RUNNING: running job
 END: completed
 ERROR
 '''
-import numpy
+# import numpy
 import math
 import util
 import models
@@ -185,7 +185,7 @@ class _TFJobs(object):
         job_dict['duration'] = int(float(job_dict['duration']))
         # job_dict['duration'] = int(job_dict['duration'])
 
-        job_dict['rank'] = sys.maxint
+        job_dict['rank'] = sys.maxsize
 
 
         if 'start_time' not in job_dict:
@@ -198,7 +198,7 @@ class _TFJobs(object):
         if 'submit_time' in job_dict:
             job_dict['r_submit_time'] = int(-1 * job_dict['submit_time'])
 
-        job_dict['start_time'] = sys.maxint
+        job_dict['start_time'] = sys.maxsize
         job_dict['end_time'] = 0
         job_dict['pending_time'] = 0
 
@@ -433,7 +433,7 @@ class _TFJobs(object):
         ''' job gets into the system: pending or running, and finally END'''
         #job not started yet
         job['status'] = 'PENDING'
-        job['start_time'] = sys.maxint
+        job['start_time'] = sys.maxsize
         job['last_start_time'] = 0
         job['last_check_time'] = job['submit_time']
         job['total_executed_time'] = 0 # total
